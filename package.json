@@ -1,5 +1,7 @@
 {
   "name": "Facebk_Clone",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
 }
