@@ -1,3 +1,57 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+table tr td
+{
+padding: 2;
+}
+
+.label_connexion{
+
+}
+
+// .container{
+//     background-color: red;
+//     width: 200px;
+//     height: 150px
+// }
+
+.container_connexion{
+  // background-color: white;
+  // width: 300px;
+  // height: 300px;
+
+width: 30%;   /* == 400px * .5 = 200px */
+height: 50%;  /* == 160px * .25 = 40px */
+margin: 5%;   /* == 400px * .05 = 20px */
+padding: 5%;  /* == 400px * .05 = 20px */
+background: white;
+border-radius : 10px / 20px;
+position: left;
+margin-right: auto;
+margin-left: auto;
+//
+// padding-right: 15px;
+// padding-left: 15px;
+
+
+}
+
+.connexion{
+  border-radius :20px;
+  color: white;
+  background-color: blue;
+  padding: 15px 15px;
+  margin: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+::placeholder {
+  color: blue;
+  font-size: 1.5em;
+  border-radius : 50px;
+  width: 300px;   /* == 400px * .5 = 200px */
+  height: 200px;
+
+}
