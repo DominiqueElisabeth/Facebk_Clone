@@ -1,25 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pictures </h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Pictures Index</h1>
+<br>
+<table class="container">
+  <div class="row">
     <% @pictures.each do |picture| %>
-      <tr>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="btn-group btn-group-sm">
+        <div class="col-md-12"><h4>Username: <%= picture.user.name %></h4></div>
+        <div class="col-md-12 posted_comment"><h5>diary：<%= picture.content %></h5></div>
+        <div class="col-md-12 posted_picture"><%= image_tag picture.image.url %></div>
+        <button type="button" class="btn btn-info"><%= link_to 'Show', picture %></button>
+        <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_picture_path(picture) %></button>
+        <button type="button" class="btn btn-danger"><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      </div>
     <% end %>
-  </tbody>
+  </div>
 </table>
 
 <br>
-
-<%= link_to 'New Picture', new_picture_path %>
+<button type="button" class="btn btn-info"><%= link_to 'New Picture', new_picture_path %></button>
