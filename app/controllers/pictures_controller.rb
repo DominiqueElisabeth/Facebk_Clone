@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
-  before_action :user_login_check, only: [:new]
+  before_action :logged_in?
 
   def index
     @pictures = Picture.all
@@ -11,6 +11,7 @@ class PicturesController < ApplicationController
 
   def new
     @picture = Picture.new
+    @picture.user_id = current_user.id
     end
 
   def edit
@@ -22,7 +23,7 @@ class PicturesController < ApplicationController
       render :new
     else
       if @picture.save
-        redirect_to @picture, notice: 'picture was posted'
+        redirect_to pictures_path, notice: 'Picture was posted'
       else
         render :new
       end
@@ -38,7 +39,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'picture was updated' }
+        format.html { redirect_to @picture, notice: 'Picture was updated' }
       else
         format.html { render :edit }
       end
@@ -60,7 +61,7 @@ class PicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.require(:picture).permit(:content, :image, :image_cache)
+      params.require(:picture).permit(:id, :content, :image, :image_cache)
     end
     def user_login_check
    unless logged_in?

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Pictures List</h1>
+<h1>Picture's List</h1>
 <br>
 <table class="container">
   <div class="row">
@@ -8,11 +8,11 @@
          <p><%= picture.user.name %></p>
          <p>Content <%= picture.content %></p>
          <p><%= image_tag(picture.image.url) %></p>
-       <tr>
-         <th><%= link_to 'Show', picture, data: {confirm: 'Are you sure you want to see?'} %></th>
-         <th><%= link_to 'Edit', edit_picture_path(picture), data: {confirm: 'Are you sure you want to edit?'} %></th>
-         <th><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></th>
-       </tr>
+         <tr>
+           <th><%= link_to 'See', picture, data: {confirm: 'Are you sure you want to see?'} %></th>
+           <th><%= link_to 'Edit', edit_picture_path(picture), data: {confirm: 'Are you sure you want to edit?'} %></th>
+           <th><%= link_to 'Delete', picture, method: :delete, data: { confirm: 'Are you sure?' } %></th>
+         </tr>
        <% end %>
-<br>
+
 <button type="button" class="btn btn-info"><%= link_to 'New Picture', new_picture_path %></button>
