@@ -12,9 +12,13 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <ul class="btn-group btn-group-sm">
+                <li class="col-md-12"><h3>Username: <%= user.name %></h3></li>
+                <li class="col-md-12"><h3>Email: <%= user.email %></h3></li>
+              </ul>
+                <button type="button" class="btn btn-info"><%= link_to 'Show', user, data: { confirm: 'Are you sure?' } %></button>
+                <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_user_path(user), data: { confirm: 'Are you sure?' } %></button>
+                <button type="button" class="btn btn-danger"><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></button>
       </tr>
     <% end %>
   </tbody>

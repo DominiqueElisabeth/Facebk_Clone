@@ -10,12 +10,8 @@ class PicturesController < ApplicationController
   end
 
   def new
-    if params[:back]
-      @picture = Picture.new(picture_params)
-    else
-      @picture = Picture.new
+    @picture = Picture.new
     end
-  end
 
   def edit
   end
@@ -25,7 +21,7 @@ class PicturesController < ApplicationController
     if params[:back]
       render :new
     else
-      if @post.save
+      if @picture.save
         redirect_to @picture, notice: 'picture was posted'
       else
         render :new
@@ -66,10 +62,9 @@ class PicturesController < ApplicationController
     def picture_params
       params.require(:picture).permit(:content, :image, :image_cache)
     end
-
-  def user_login_check
-    unless logged_in?
-      redirect_to root_path
-    end
-  end
+    def user_login_check
+   unless logged_in?
+     redirect_to root_path
+   end
+ end
 end
