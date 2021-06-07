@@ -22,11 +22,13 @@ class PicturesController < ApplicationController
 
   def create
     @picture = current_user.pictures.build(picture_params)
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was succefully create' }
+    if params[:back]
+      render :new
+    else
+      if @post.save
+        redirect_to @picture, notice: 'picture was posted'
       else
-        format.html { render :new }
+        render :new
       end
     end
   end
@@ -40,7 +42,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was succefully updated' }
+        format.html { redirect_to @picture, notice: 'picture was updated' }
       else
         format.html { render :edit }
       end
@@ -50,7 +52,7 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: 'Picture was succefully deleted' }
+      format.html { redirect_to pictures_url, notice: 'Picture was deleted' }
     end
   end
 

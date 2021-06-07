@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :pictures
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -7,10 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources  :users
 
-  resources :posts do
+  resources :pictures do
     collection do
     post :confirm
   end
-  end
-  resources :favorites, only: [:create, :destroy]
 end
+end 
