@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 
-<nav class="navbar navbar-dark bg-light fixed-top">
-  <span class="navbar-brand mb-0 h1">Facebook Clone</span>
-  <form class="form-inline">
-  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-</form>
-</nav>
-
 <html>
   <head>
     <title>FacebkClone</title>
     <%= csrf_meta_tags %>
-
+        <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <% if logged_in? %>
-    <%= link_to "Profile", user_path(current_user.id) %>
-    <%= link_to "Log Out", session_path(current_user.id), method: :delete %>
-    <% else %>
-    <%= link_to "Sign Up", new_user_path %>
-    <%= link_to "Log In", new_session_path %>
-    <% end %>
-    <%= yield %>
+<ul class="menu">
+  <li>
+  <a href="#home">Home</a>
+  </li>
+  <li>
+  <a href="/pictures">show</a>
+  </li>
+  <li>
+  <a href="#">Profile</a>
+  </li>
+  <li>
+  <a href="">Log In</a>
+  </li>
+  <li>
+  <a href="#new_user_path">Sign Up</a>
+  </li>
+</ul>
 
-  </body>
+<body>
+  <% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+  <% end %>
+  <% if logged_in? %>
+  <%= link_to "Profile", user_path(current_user.id) %>
+  <%= link_to "Log Out", session_path(current_user.id), method: :delete %>
+  <% else %>
+  <%= link_to "Sign Up", new_user_path %>
+  <%= link_to "Log In", new_session_path %>
+  <% end %>
+  <%= yield %>
+
+</body>
 </html>
