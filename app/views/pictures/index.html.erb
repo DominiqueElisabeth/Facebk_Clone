@@ -9,7 +9,7 @@
          <p>Content <%= picture.content %></p>
          <p><%= image_tag(picture.image.url) %></p>
          <tr>
-           <th><%= link_to 'See', picture, data: {confirm: 'Are you sure you want to see?'} %></th>
+           <th><%= link_to 'Show', picture, data: {confirm: 'Are you sure you want to see?'} %></th>
            <th><%= link_to 'Edit', edit_picture_path(picture), data: {confirm: 'Are you sure you want to edit?'} %></th>
            <th><%= link_to 'Delete', picture, method: :delete, data: { confirm: 'Are you sure?' } %></th>
          </tr>
